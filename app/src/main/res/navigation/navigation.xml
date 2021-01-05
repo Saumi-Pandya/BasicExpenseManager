@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/displayFragment"
-        android:name="com.example.basicexpensemanager.DisplayFragment"
+        android:name="com.example.basicexpensemanager.ui.DisplayFragment"
         android:label="fragment_display"
         tools:layout="@layout/fragment_display" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.basicexpensemanager.DetailFragment"
+        android:name="com.example.basicexpensemanager.ui.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action

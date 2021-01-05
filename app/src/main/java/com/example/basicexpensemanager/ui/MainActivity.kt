@@ -1,11 +1,8 @@
-package com.example.basicexpensemanager
+package com.example.basicexpensemanager.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
-import java.text.DateFormat
-import java.util.*
+import com.example.basicexpensemanager.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
