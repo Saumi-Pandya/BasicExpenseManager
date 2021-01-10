@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.example.basicexpensemanager.R
 import com.example.basicexpensemanager.data.Expense
 
@@ -34,9 +33,9 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val title = requireView().findViewById<EditText>(R.id.title_d)
-        val amt = requireView().findViewById<EditText>(R.id.amt_d)
-        val saveBtn = requireView().findViewById<Button>(R.id.savebtn_d)
+        val title = requireView().findViewById<EditText>(R.id.title_u)
+        val amt = requireView().findViewById<EditText>(R.id.amt_u)
+        val saveBtn = requireView().findViewById<Button>(R.id.updatebtn)
 
         saveBtn.setOnClickListener {
 

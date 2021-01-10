@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -72,9 +71,10 @@ class DisplayFragment : Fragment(),
     override fun onItemClick(position: Int) {
         val builder = AlertDialog.Builder(requireContext())
         builder.setMessage("What would you like to do?")
+
+        //code to delete an expense
         var itemList: List<Expense>? = null
-        viewModel.getExp().observe(viewLifecycleOwner, Observer {
-                itemList=it})
+        viewModel.getExp().observe(viewLifecycleOwner, Observer { itemList=it})
 
         val item = itemList!![position]
         builder.setNegativeButton("Delete"){dialogInterface, which ->
@@ -82,11 +82,13 @@ class DisplayFragment : Fragment(),
         }
 
         builder.setPositiveButton("Update"){dialogInterface, which ->
-            //viewModel.deleteExpense(item)
+            val bundle = Bundle()
+            bundle.putLong("id",item.id)
+               findNavController().navigate(R.id.action_displayFragment_to_updateFragment,bundle)
         }
 
         val alertDialog: AlertDialog = builder.create()
-        alertDialog.setCancelable(false)
+        alertDialog.setCancelable(true)
         alertDialog.show()
 
     }

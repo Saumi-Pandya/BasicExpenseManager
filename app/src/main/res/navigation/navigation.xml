@@ -17,6 +17,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_displayFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -28,5 +31,17 @@
             app:destination="@id/displayFragment"
             app:popUpTo="@id/displayFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.basicexpensemanager.ui.UpdateFragment"
+        android:label="UpdateFragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_displayFragment"
+            app:destination="@id/displayFragment" />
+        <argument
+            android:name="itemToupdate"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
 </navigation>
