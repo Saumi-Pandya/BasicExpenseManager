@@ -1,10 +1,12 @@
 package com.example.basicexpensemanager.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -65,14 +67,28 @@ class DisplayFragment : Fragment(),
         val newAdapter = ExpenseAdapter(expList,this@DisplayFragment)
         recyclerView.adapter = newAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
-       /* recyclerView.apply {
-            adapter = ExpenseAdapter(expList,this@DisplayFragment)
-            layoutManager = LinearLayoutManager(activity)
-        }*/
-
     }
 
     override fun onItemClick(position: Int) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage("What would you like to do?")
+        var itemList: List<Expense>? = null
+        viewModel.getExp().observe(viewLifecycleOwner, Observer {
+                itemList=it})
+
+        val item = itemList!![position]
+        builder.setNegativeButton("Delete"){dialogInterface, which ->
+              viewModel.deleteExpense(item)
+        }
+
+        builder.setPositiveButton("Update"){dialogInterface, which ->
+            //viewModel.deleteExpense(item)
+        }
+
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+
     }
 
 }
