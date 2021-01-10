@@ -1,4 +1,4 @@
-package com.example.basicexpensemanager.ui
+package com.example.basicexpensemanager.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.basicexpensemanager.R
 import com.example.basicexpensemanager.data.Expense
+import com.example.basicexpensemanager.ui.viewmodel.DetailViewModel
 import java.text.DateFormat
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.example.basicexpensemanager.ui
+package com.example.basicexpensemanager.ui.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basicexpensemanager.data.Expense
 import com.example.basicexpensemanager.R
+import com.example.basicexpensemanager.ui.viewmodel.DisplayViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -63,7 +64,11 @@ class DisplayFragment : Fragment(),
     //code to set the RecyclerView
     fun setRecyclerView(expList: List<Expense>){
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.recy_view)
-        val newAdapter = ExpenseAdapter(expList,this@DisplayFragment)
+        val newAdapter =
+            ExpenseAdapter(
+                expList,
+                this@DisplayFragment
+            )
         recyclerView.adapter = newAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
     }
