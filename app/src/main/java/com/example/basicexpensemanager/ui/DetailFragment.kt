@@ -10,6 +10,8 @@ import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.basicexpensemanager.R
 import com.example.basicexpensemanager.data.Expense
+import java.text.DateFormat
+import java.util.*
 
 
 class DetailFragment : Fragment() {
@@ -36,10 +38,12 @@ class DetailFragment : Fragment() {
         val title = requireView().findViewById<EditText>(R.id.title_u)
         val amt = requireView().findViewById<EditText>(R.id.amt_u)
         val saveBtn = requireView().findViewById<Button>(R.id.updatebtn)
+        var currentdate: Date = Calendar.getInstance().time
+        var dateStr: String = DateFormat.getInstance().format(currentdate)
 
         saveBtn.setOnClickListener {
 
-            var expObject: Expense = Expense(0L,title.text.toString(),amt.text.toString(),datedb = "Yet to update")
+            var expObject: Expense = Expense(0L,title.text.toString(),"Rs "+amt.text.toString(),dateStr)
             viewModel.insertExpDetail(expObject)
             requireActivity().onBackPressed()
         }
