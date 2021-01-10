@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.basicexpensemanager.data.Expense
 import com.example.basicexpensemanager.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -17,8 +19,7 @@ class DisplayFragment : Fragment(),
     ExpenseAdapter.OnItemClickListener {
 
     lateinit var viewModel: DisplayViewModel
-    lateinit var expenses:List<Expense>
-    val floatingBtn = requireView().findViewById<FloatingActionButton>(R.id.floatingActionButton)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,28 +38,41 @@ class DisplayFragment : Fragment(),
 
     }
 
+   // lateinit var expenses:List<Expense>
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getExp().observe(viewLifecycleOwner, Observer {
+            setRecyclerView(it)
+        })
+    }
+
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         //code to handle FloatingActionButton(move to DetailFragment)
+        val floatingBtn = requireView().findViewById<FloatingActionButton>(R.id.floatingActionButton)
         floatingBtn.setOnClickListener{
             findNavController().navigate(R.id.action_displayFragment_to_detailFragment)
         }
+    }
 
-        var expenses:List<Expense>
-        viewModel.expenses.observe(viewLifecycleOwner, Observer {
-            expenses = it
-        })
-
-
+    //code to set the RecyclerView
+    fun setRecyclerView(expList: List<Expense>){
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recy_view)
+        val newAdapter = ExpenseAdapter(expList,this@DisplayFragment)
+        recyclerView.adapter = newAdapter
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+       /* recyclerView.apply {
+            adapter = ExpenseAdapter(expList,this@DisplayFragment)
+            layoutManager = LinearLayoutManager(activity)
+        }*/
 
     }
 
     override fun onItemClick(position: Int) {
-
     }
-
 
 }
