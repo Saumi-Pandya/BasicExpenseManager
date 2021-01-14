@@ -12,4 +12,5 @@ It is a basic application which allows user to add, delete and update expenses. 
 * Coroutines
 * Safe Arguments
 
-![uiPage](https://user-images.githubusercontent.com/72929195/104595688-f75cbd80-5698-11eb-9161-3ed37cb82fec.jpg)
+
+<img src="https://user-images.githubusercontent.com/72929195/104595688-f75cbd80-5698-11eb-9161-3ed37cb82fec.jpg" width="100" height="100">
