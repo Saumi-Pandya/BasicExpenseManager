@@ -12,9 +12,11 @@ It is a basic application which allows user to add, delete and update expenses. 
 * Coroutines
 * Safe Arguments
 
-### Home screen
+#### Home screen
 <img src="https://user-images.githubusercontent.com/72929195/104595688-f75cbd80-5698-11eb-9161-3ed37cb82fec.jpg" width="250" height="500">  
 
-### To add new expense
+
+
+#### To add new expense
 <img src="https://user-images.githubusercontent.com/72929195/104598320-730c3980-569c-11eb-86c7-294bce100073.jpg" width="250" height="500">
 
