@@ -13,5 +13,5 @@ It is a basic application which allows user to add, delete and update expenses. 
 * Safe Arguments
 
 
-<img src="https://user-images.githubusercontent.com/72929195/104595688-f75cbd80-5698-11eb-9161-3ed37cb82fec.jpg" width="250" height="500">      <img src="https://user-images.githubusercontent.com/72929195/104598320-730c3980-569c-11eb-86c7-294bce100073.jpg" width="250" height="500">
+<img src="https://user-images.githubusercontent.com/72929195/104595688-f75cbd80-5698-11eb-9161-3ed37cb82fec.jpg" width="250" height="500">               <img src="https://user-images.githubusercontent.com/72929195/104598320-730c3980-569c-11eb-86c7-294bce100073.jpg" width="250" height="500">
 
