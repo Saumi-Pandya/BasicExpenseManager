@@ -6,3 +6,8 @@ It is a basic application which allows user to add, delete and update expenses. 
 
 ## Components used
 * Fragments and Navigation graph
+* RecyclerView and CardView
+* Room DB(abstraction of SQLite)
+* Model-View-View-Model architecture(MVVM)
+* Coroutines
+* Safe Arguments
